@@ -1,0 +1,4 @@
+index=<endpoint_index> sourcetype=<process_sourcetype> earliest=-7d host=<target_host> "AnyDesk.exe"
+| spath
+| table _time host user process_name process_command_line process_executable file_directory file_name parent_process process_hash
+| sort - _time
