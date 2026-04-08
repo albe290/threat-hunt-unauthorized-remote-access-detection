@@ -1,0 +1,4 @@
+index=<endpoint_index> sourcetype=<process_sourcetype> earliest=-7d "AnyDesk.exe"
+| stats count min(_time) as firstSeen max(_time) as lastSeen by host
+| convert ctime(firstSeen) ctime(lastSeen)
+| sort - count
