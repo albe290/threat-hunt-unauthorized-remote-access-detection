@@ -1,0 +1,2 @@
+index=<endpoint_index> sourcetype=<process_sourcetype> earliest=-7d host=<target_host> "AnyDesk.exe"
+| table _time _raw
