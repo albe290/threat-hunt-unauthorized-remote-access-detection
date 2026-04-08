@@ -1,0 +1,5 @@
+index=<endpoint_index> sourcetype=<process_sourcetype> earliest=-30d "AnyDesk.exe"
+| spath user
+| stats count min(_time) as firstSeen max(_time) as lastSeen values(host) as hosts values(process_executable) as executable values(process_command_line) as cmd by user
+| convert ctime(firstSeen) ctime(lastSeen)
+| sort - count
